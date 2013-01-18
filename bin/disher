@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+require 'disher'
+require 'open-uri'
+
+url = ARGV.first.strip
+body = open(url).read
+content = Disher::extract(body)
+
+puts content
