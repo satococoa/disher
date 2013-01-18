@@ -11,7 +11,9 @@ module Disher
 
   module_function
   def extract(body)
-    doc = Nokogiri::HTML(body)
+    doc = Nokogiri::HTML(
+      body.encode("UTF-8",
+        :invalid => :replace, :undef => :replace, :replace => ""))
     elements = []
     @@extract_tags.each do |tag|
       elements << doc.xpath("//#{tag}")
