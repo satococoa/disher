@@ -6,6 +6,7 @@ require 'optparse'
 opt = OptionParser.new
 OPTS = {}
 opt.on('-l LOGIC', '--logic LOGIC') {|v| OPTS[:logic] = v }
+opt.on('-d', '--debug') {|v| OPTS[:debug] = v }
 opt.parse!(ARGV)
 
 raise 'You must pass url.' if ARGV.first.nil?
