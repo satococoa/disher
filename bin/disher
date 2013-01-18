@@ -1,9 +1,17 @@
 #!/usr/bin/env ruby
 require 'disher'
 require 'open-uri'
+require 'optparse'
+
+opt = OptionParser.new
+OPTS = {}
+opt.on('-l LOGIC', '--logic LOGIC') {|v| OPTS[:logic] = v }
+opt.parse!(ARGV)
+
+raise 'You must pass url.' if ARGV.first.nil?
 
 url = ARGV.first.strip
 body = open(url).read
-content = Disher::extract(body)
+content = Disher::extract(body, OPTS)
 
 puts content

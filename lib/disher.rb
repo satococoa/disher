@@ -13,7 +13,9 @@ module Disher
 
   module_function
   def extract(body, options = {})
-    logic = @@logics[(options.delete(:logic) || @@default_logic)].new(options)
+    logic_name = @@logics[(options.delete(:logic) || @@default_logic).intern]
+    raise Logic::NotImplementedError if logic_name.nil?
+    logic = logic_name.new(options)
     logic.extract(body)
   end
 end

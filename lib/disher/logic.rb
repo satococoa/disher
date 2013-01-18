@@ -1,5 +1,6 @@
 module Disher
   class Logic
+    class NotImplementedError < NotImplementedError; end
     @@default_options = {}
 
     def initialize(options)
