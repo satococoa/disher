@@ -50,6 +50,12 @@ module Disher
       plus_words_rate   = @options[:plus_words].inject(0) {|count, word| count += element.text.scan(word).count }.to_f / @plus_words_count
       minus_words_rate  = @options[:minus_words].inject(0) {|count, word| count += element.text.scan(word).count }.to_f / @minus_words_count
 
+      punctuations_rate = 0 if punctuations_rate.nan?
+      children_rate     = 0 if children_rate.nan?
+      links_rate        = 0 if links_rate.nan?
+      plus_words_rate   = 0 if plus_words_rate.nan?
+      minus_words_rate  = 0 if minus_words_rate.nan?
+
       score = punctuations_rate * @options[:punctuations_weight] +
         children_rate * @options[:children_weight] +
         links_rate * @options[:links_weight] +
