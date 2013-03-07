@@ -6,7 +6,7 @@ require "disher/logic"
 module Disher
   @@logics = {
     :punctuation => PunctuationLogic,
-    # :css => CssLogic, # TODO: not implemented
+    :css => CssLogic,
     # :xpath => XpathLogic # TODO: not implemented
   }
   @@default_logic = :punctuation

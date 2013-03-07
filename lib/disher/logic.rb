@@ -10,11 +10,8 @@ module Disher
     def extract(body)
       raise NotImplementedError
     end
-
-    def calculate_score(element)
-      raise NotImplementedError
-    end
   end
 end
 
 require 'disher/logic/punctuation_logic'
+require 'disher/logic/css_logic'
